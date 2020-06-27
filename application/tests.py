@@ -1,6 +1,6 @@
 import json
 import unittest
-import application.app as tested_app
+import app as tested_app
 
 
 class FlaskAppTests(unittest.TestCase):
