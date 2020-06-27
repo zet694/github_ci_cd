@@ -28,9 +28,9 @@ jobs:
       NAME: ${{ secrets.DOCKER_PROJECT }}
     steps:
       - name: Login to docker.io
-        run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
-      - uses: actions/checkout@master
-      - name: Build image
-        run: docker build -t $LOGIN/$NAME:${GITHUB_REF:11} -f Dockerfile .
-      - name: Push image to docker.io
-        run: docker push $LOGIN/$NAME:${GITHUB_REF:11}
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: zet694/${{ secrets.DOCKER_PROJECT }}
+          tags: latest
