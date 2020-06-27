@@ -27,6 +27,7 @@ jobs:
       LOGIN: ${{ secrets.DOCKER_LOGIN }}
       NAME: ${{ secrets.DOCKER_PROJECT }}
     steps:
+      - uses: actions/checkout@master
       - name: Login to docker.io
         uses: docker/build-push-action@v1
         with:
