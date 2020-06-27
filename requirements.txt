@@ -1,0 +1,3 @@
+Flask==1.1.2
+docker==4.1.0
+coverage==4.5.4
